@@ -1,0 +1,41 @@
+<div class="container">
+
+    <div class="card ">
+        <div class="row m-0 p-0 ">
+            <div class="col-12">
+                <div class="my-4 mx-4" *ngIf="UserInfo">
+                    <div class="row d-flex justify-content-center" style="height: 200px;">
+                        <img [src]="UserInfo.avatar_url" style="height: 120px; width: 120px;"  class=" my-auto rounded-circle" width="60px" height="60px" >
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <span class="fs-5 " style="display:contents ;">name : {{UserInfo.name}}</span>
+                    </div>
+                    <div class="row d-flex justify-content-center" *ngIf="UserInfo.twitter_username">
+                        <span class="fs-6 " style="display:contents ;">Twitter Name : {{UserInfo.twitter_username}}</span>
+                    </div>
+                    <div class="row d-flex justify-content-center" *ngIf="UserInfo.type">
+                        <span class="fs-6 " style="display:contents ;">type : {{UserInfo.type}}</span>
+                    </div>
+                    <div class="row d-flex justify-content-center" *ngIf="UserInfo.bio">
+                        <span class="fs-6 " style="display:contents ;">bio : {{UserInfo.bio}}</span>
+                    </div>
+                    <div class="row d-flex justify-content-center" *ngIf="UserInfo.public_repos">
+                        <span class="fs-6 " style="display:contents ;">no of repos : {{UserInfo.public_repos}}</span>
+                    </div>
+                    <div class="row d-flex justify-content-center" *ngIf="UserInfo.location">
+                        <span class="fs-6 " style="display:contents ;">location : {{UserInfo.location}}</span>
+                    </div>
+                    <div class="row d-flex justify-content-center" *ngIf="UserInfo.created_at">
+                        <span class="fs-6 " style="display:contents ;">created On : {{UserInfo.created_at| date:'mediumDate'}}</span>
+                    </div>
+                    <div class="row d-flex justify-content-center" *ngIf="UserInfo.repos_url">
+                        <span class="fs-6 " style="display:contents ;">Repo url : <a style="text-decoration-line: underline; cursor: pointer;"
+                             (click)="nagiavteTORepo(UserInfo.login)">{{UserInfo.repos_url}}</a></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

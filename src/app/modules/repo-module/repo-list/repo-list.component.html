@@ -1,0 +1,42 @@
+<div class="">
+
+    <div class="card">
+        <div class="row m-0 p-0 ">
+            <div class="col-12 lightpink mx-0 p-0" style="max-height: 700px;min-height: 700px; overflow-y: scroll;">
+                <div class="row m-0 p-0"> <span class="text-center fs-3">Repos</span></div>
+                <div class=" card row pink rounded mx-2 p-0  mt-1 mb-1" style="height: fit-content;" *ngFor="let item of Repo_list" >
+                    <div class="col">
+                        <div class="row m-0 p-0 mt-2"> <span class="fs-6 text-left">Repo name : <a style="text-decoration-line: underline; cursor: pointer;">{{item?.name}}</a> </span></div>
+                        <div class="row m-0 p-0 mt-1"><span class="fs-6 text-left">language : {{item?.language || '--'}}</span></div>
+                        <div class="row m-0 p-0 mt-1"><span class="fs-6 text-left">created on : {{item?.created_at | date:'mediumDate'}}</span></div>
+                        <div class="row m-0 p-0 mt-1"><span class="fs-6 text-left">description : {{item?.description || '--'}}</span></div>
+
+
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 500px;" *ngIf="Repo_list.length==0">
+                    <span class="text-center" style="color: red;"> Api call limit exceeded, Please try later</span>
+
+                </div>
+                <div class="row mx-0 p-0">
+                    <mat-paginator 
+                    #paginator
+                    [length]="total"
+                    [pageSize]="perPage"
+                    [pageSizeOptions]="[5, 10, 20]"
+                    [hidePageSize]="true"
+                    [pageIndex]="Page"
+                    (page)="handlePageEvent($event)"
+                    aria-label="Select page"
+                    >
+                   </mat-paginator>
+      
+                </div>
+                
+            </div>
+            
+
+        </div>
+
+    </div>
+</div>
